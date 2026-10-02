@@ -80,7 +80,10 @@ public class EmployeeController {
 //    请求路径上方已有，所以只加上PostMapping注解即可
     @PostMapping
     @ApiOperation("新增员工")
-    public Result save(EmployeeDTO employeeDTO) {
+    public Result save(@RequestBody EmployeeDTO employeeDTO) {
+
+//        System.out.println("当前线程id"+ Thread.currentThread().getId());
+
         log.info("新增员工:{}",employeeDTO);
         employeeService.save(employeeDTO);
         return Result.success();
