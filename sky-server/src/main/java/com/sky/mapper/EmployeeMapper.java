@@ -1,5 +1,7 @@
 package com.sky.mapper;
 
+import com.github.pagehelper.Page;
+import com.sky.dto.EmployeePageQueryDTO;
 import com.sky.entity.Employee;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
@@ -24,4 +26,19 @@ public interface EmployeeMapper {
             "values (#{name}, #{username},#{password},#{phone},#{sex},#{idNumber},#{createTime},#{updateTime},#{createUser},#{updateUser},#{status})")
 //            "(#{name}, #{username},#{password},#{phone},#{sex},#{idNumber},#{creatTime},#{updateTime},#{createUser},#{status})")
     void insert(Employee employee);
+
+    /**
+     * 分页查询，这里是动态sql，所以不用注解，改为映射
+     * @param employeePageQueryDTO
+     * @return
+     */
+
+//    Page本质上是一个List集合
+    Page<Employee> pageQuery(EmployeePageQueryDTO employeePageQueryDTO);
+
+    /**
+     * 根据主键动态修改属性，动态sql在映射文件中编写
+     * @param employee
+     */
+    void update(Employee employee);
 }
