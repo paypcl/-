@@ -88,13 +88,13 @@ public class EmployeeServiceImpl implements EmployeeService {
                 PasswordConstant.DEFAULT_PASSWORD.getBytes()));
 
 //        创建时间&修改时间
-        employee.setCreateTime(LocalDateTime.now());
-        employee.setUpdateTime(LocalDateTime.now());
+//        employee.setCreateTime(LocalDateTime.now());
+//        employee.setUpdateTime(LocalDateTime.now());
 
 //        创建人id&修改人id
 //        TODO 好像说要删除线程局部变量避免内存泄漏？
-        employee.setCreateUser(BaseContext.getCurrentId());
-        employee.setUpdateUser(BaseContext.getCurrentId());
+//        employee.setCreateUser(BaseContext.getCurrentId());
+//        employee.setUpdateUser(BaseContext.getCurrentId());
 
 //        调用持久层
         employeeMapper.insert(employee);
@@ -173,8 +173,8 @@ public class EmployeeServiceImpl implements EmployeeService {
         Employee employee = new Employee();
         BeanUtils.copyProperties(employeeDTO,employee);
 
-        employee.setUpdateTime(LocalDateTime.now());
-        employee.setUpdateUser(BaseContext.getCurrentId());
+//        employee.setUpdateTime(LocalDateTime.now());
+//        employee.setUpdateUser(BaseContext.getCurrentId());
 
 //        由于在账号启用停用时，将Mapper的代码泛化实现了
 //        所以这里不用写，直接传参即可
