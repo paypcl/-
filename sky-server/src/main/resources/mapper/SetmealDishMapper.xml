@@ -12,7 +12,7 @@
             </foreach>
     </select>
 
-    <insert id="insertBatch">
+    <insert id="insertBatch" parameterType="list">
         insert into setmeal_dish
         (setmeal_id, dish_id, name, price, copies)
         VALUES
